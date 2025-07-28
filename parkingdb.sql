@@ -52,12 +52,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-
---
 -- Chỉ mục cho các bảng đã đổ
 --
 
