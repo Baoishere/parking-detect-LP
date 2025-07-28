@@ -1,0 +1,213 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(120deg, #e0eafc, #cfdef3 100%);
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Trang login */
+.login-box {
+    max-width: 350px;
+    margin: 80px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 16px #b0c4de55;
+    padding: 32px 28px;
+}
+h2 {
+    text-align: center;
+    color: #2b5876;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 18px 0;
+    border-radius: 6px;
+    border: 1px solid #b0c4de;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background: #36d1c4;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: linear-gradient(90deg, #5b86e5, #36d1c4);
+}
+.alert {
+    color: #b71c1c;
+    background: #ffe0e0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Trang index */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.09);
+    padding: 32px 28px 28px 28px;
+}
+h1 {
+    text-align: center;
+    color: #2b5876;
+    margin-bottom: 24px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+label {
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+input[type="file"] {
+    margin-bottom: 16px;
+}
+#result {
+    margin-top: 24px;
+}
+.plates-list {
+    list-style: none;
+    padding: 0;
+}
+.plates-list li {
+    background: #e0eafc;
+    margin-bottom: 10px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 1.15rem;
+    color: #2b5876;
+    font-weight: 500;
+    white-space: pre-line;
+}
+.img-preview {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+.img-preview img {
+    max-width: 320px;
+    max-height: 220px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.09);
+    background: #f8fafc;
+}
+.img-caption {
+    text-align: center;
+    font-size: 0.98rem;
+    color: #888;
+    margin-top: 4px;
+}
+.alert-success {
+    background: #e0ffe0;
+    color: #1b5e20;
+}
+.alert-danger {
+    background: #ffe0e0;
+    color: #b71c1c;
+}
+.confirm-section {
+    margin-top: 24px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+.confirm-section h3 {
+    margin-top: 0;
+}
+.img-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.img-row div {
+    flex: 1;
+    margin-right: 12px;
+}
+.img-row div:last-child {
+    margin-right: 0;
+}
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-right: 10px;
+    border: none;
+}
+.btn-success {
+    background: #4caf50;
+    color: white;
+}
+.btn-danger {
+    background: #f44336;
+    color: white;
+}
+.btn-success:hover {
+    background: #45a049;
+}
+.btn-danger:hover {
+    background: #e53935;
+}
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.form-box {
+    flex: 1;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    min-width: 280px;
+}
+.img-row { display: flex; gap: 40px; justify-content: center; margin: 20px 0; }
+.confirm-section { background: #f8fafc; border-radius: 10px; padding: 18px 10px; margin-top: 24px; }
+.btn { padding: 10px 24px; border-radius: 6px; border: none; font-size: 1.1rem; margin-right: 12px; cursor: pointer; }
+.btn-success { background: #36d1c4; color: #fff; }
+.btn-danger { background: #e57373; color: #fff; }
+@media (max-width: 800px) {
+    .container { padding: 12px 4vw; }
+    .img-preview img { max-width: 95vw; }
+    .img-row {
+        flex-direction: column;
+    }
+    .img-row div {
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
+    .img-row div:last-child {
+        margin-bottom: 0;
+    }
+}
+.alert-info {
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+}

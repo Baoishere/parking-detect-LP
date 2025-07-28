@@ -1,0 +1,9 @@
+Flask
+opencv-python
+torch
+torchvision
+paddleocr
+numpy
+Pillow
+requests
+mysql-connector-python

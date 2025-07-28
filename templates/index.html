@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Plate Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <h1>Hệ thống bãi giữ xe thông minh</h1>
+        <div class="form-row">
+            <!-- Car In -->
+            <form action="/car_in" method="post" enctype="multipart/form-data" class="form-box">
+                <h2>🚗 Xe vào</h2>
+                <label for="file_in">Upload an image:</label>
+                <input type="file" name="file" id="file_in" accept="image/*" required>
+                <button type="submit">Xe vào</button>
+            </form>
+
+            <!-- Car Out -->
+            <form action="/car_out" method="post" enctype="multipart/form-data" class="form-box">
+                <h2>🚙 Xe ra</h2>
+                <label for="file_out">Upload an image:</label>
+                <input type="file" name="file" id="file_out" accept="image/*" required>
+                <button type="submit">Xe ra</button>
+            </form>
+        </div>
+        <div class="img-preview">
+            {% if input_image %}
+                <div>
+                    <img src="{{ url_for('static', filename=input_image) }}" alt="Input Image">
+                    <div class="img-caption">Original Image</div>
+                </div>
+            {% endif %}
+            {% if output_image %}
+                <div>
+                    <img src="{{ url_for('static', filename=output_image) }}" alt="Result Image">
+                    <div class="img-caption">Detected Plates</div>
+                </div>
+            {% endif %}
+        </div>
+        <div id="result">
+            {% if plates %}
+                <h2>Biển số xe:</h2>
+                <ul class="plates-list">
+                    {% for plate in plates %}
+                        <li>{{ plate|replace('\n', '<br>')|safe }}</li>
+                    {% endfor %}
+                </ul>
+            {% elif error %}
+                <div class="alert">{{ error }}</div>
+            {% endif %}
+        </div>
+        {% if confirm %}
+            <div class="confirm-section">
+                <h3>Xác nhận xe ra</h3>
+                <div class="img-row">
+                    <div>
+                        <b>Ảnh vào:</b><br>
+                        <img src="{{ url_for('static', filename=confirm['image_in']) }}" width="320"><br>
+                        <b>Biển số vào:</b> {{ confirm['plate'] }}
+                    </div>
+                    <div>
+                        <b>Ảnh ra:</b><br>
+                        <img src="{{ url_for('static', filename=confirm['image_out']) }}" width="320"><br>
+                        <b>Biển số ra:</b> {{ confirm['plate_out'] }}
+                    </div>
+                </div>
+                <form action="/confirm_match/{{ confirm['id'] }}" method="post" style="margin-top:20px;">
+                    <button type="submit" name="matched" value="1" class="btn btn-success">Biển số xe trùng khớp</button>
+                    <button type="submit" name="matched" value="0" class="btn btn-danger">Không khớp</button>
+                </form>
+            </div>
+        {% endif %}
+
+        <!-- Hiển thị khi xe vào -->
+        {% if image_in and plate_in and not image_out %}
+        <div class="alert alert-success">
+            <b>Xe vào đã được ghi nhận!</b><br>
+            <img src="{{ url_for('static', filename=image_in) }}" width="320"><br>
+            <b>Biển số nhận diện:</b> {{ plate_in }}
+        </div>
+        {% endif %}
+
+        <!-- Hiển thị khi xe ra -->
+        {% if image_in and plate_in and image_out and plate_out %}
+        <div class="alert alert-info">
+            <b>Kết quả so sánh xe ra:</b><br>
+            <div style="display:flex;gap:40px;justify-content:center;">
+                <div>
+                    <b>Ảnh vào:</b><br>
+                    <img src="{{ url_for('static', filename=image_in) }}" width="320"><br>
+                    <b>Biển số vào:</b> {{ plate_in }}
+                </div>
+                <div>
+                    <b>Ảnh ra:</b><br>
+                    <img src="{{ url_for('static', filename=image_out) }}" width="320"><br>
+                    <b>Biển số ra:</b> {{ plate_out }}
+                </div>
+            </div>
+            <div style="margin-top:16px;">
+                {% if matched == 1 %}
+                    <span style="color:green;font-weight:bold;">Biển số xe trùng khớp!</span>
+                {% else %}
+                    <span style="color:red;font-weight:bold;">Biển số xe không khớp!</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        <div style="text-align:right; margin-bottom: 10px;">
+            <a href="{{ url_for('auth.logout') }}" class="btn btn-danger" style="padding:8px 18px; border-radius:6px; text-decoration:none;">Đăng xuất</a>
+        </div>
+    </div>
+</body>
+</html>
