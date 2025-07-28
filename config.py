@@ -1,6 +1,6 @@
 class Config:
-    SECRET_KEY = '2200001314'
-    MYSQL_HOST = 'localhost'
-    MYSQL_USER = 'root'
-    MYSQL_PASSWORD = 'baoishere'
-    MYSQL_DB = 'parkingdb'
+    SECRET_KEY = '' # Đặt secret key cho Flask (giống như app.secret_key)
+    MYSQL_HOST = 'localhost' 
+    MYSQL_USER = 'root' 
+    MYSQL_PASSWORD = ''  # Hoặc password="" nếu XAMPP không có password
+    MYSQL_DB = '' # Đặt tên database của bạn ở đây, ví dụ: "parkingdb"
