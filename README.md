@@ -39,7 +39,11 @@
 
 ### 2. Chuẩn bị mô hình
 
-- Tải mô hình YOLOv5 đã huấn luyện (`LP_detector.pt`) và đặt vào thư mục `model/` hoặc đường dẫn bạn cấu hình trong code.
+- **Mô hình được đào tạo trước từ liên kết này:** [Models](https://drive.google.com/drive/folders/1qB8QYr-b-PWsXMO0K3mef66P_kXfhfmM?usp=sharing)
+
+- **Tải xuống yolov5 (phiên bản cũ) từ liên kết này:** [yolov5](https://drive.google.com/drive/folders/16Urwqj_x9Y_3KWLcc1cKMDOdYdhaQhxx?usp=sharing)
+
+- Sao chép yolov5 và thư mục model vào thư mục dự án
 
 ### 3. Khởi tạo database
 
