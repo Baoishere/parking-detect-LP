@@ -56,7 +56,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'pbkdf2:sha256:600000$Wwd6UQ1COwabK8pP$d314d9b305a91cf72454198b36b104d078852b5c410b707f12e350c84e87db27');
 
 --
 -- Chỉ mục cho các bảng đã đổ
