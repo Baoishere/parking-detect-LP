@@ -45,6 +45,8 @@
 
 - Sao chép yolov5 và thư mục model vào thư mục dự án
 
+- **Hướng dẫn huấn luyện mô hình có tại repo:** [license-plate-recognition](https://github.com/Baoishere/license-plate-recognition)
+
 ### 3. Khởi tạo database
 
 - Tạo database MySQL tên `parkingdb`.
