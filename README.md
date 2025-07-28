@@ -115,7 +115,14 @@ Parking/
 - CSS, JS để trong `static/`.
 - Nếu gặp lỗi về import YOLOv5, đảm bảo đã thêm đường dẫn `yolov5/` vào `sys.path` trong code.
 - Đảm bảo PaddleOCR và các model đã cài đặt đúng phiên bản.
-
+- Sửa file yolov5\models\experimental.py
+   ```bash
+    ckpt = torch.load(attempt_download(w), map_location=map_location)
+    ```
+   Thành
+   ```bash
+    ckpt = torch.load(attempt_download(w), map_location=map_location, weights_only=False)
+    ```
 ---
 
 ## Đóng góp & Liên hệ
